@@ -1,0 +1,63 @@
+.sinSo-header {
+  color: #85519e;
+  text-align: center;
+  font-family: 'Lucida Console', 'Courier New', monospace;
+  font-size: x-large;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  text-shadow: 1px 1px 3px white;
+  cursor: default;
+
+  .sinSo-select {
+    margin-top: 5px;
+    font-size: medium;
+
+    select {
+      cursor: pointer;
+    }
+  }
+};
+
+.sinSo-page {
+  display: flex;
+  flex-direction: row;
+};
+
+.sinSo-content {
+  color: white;
+  white-space: pre;
+  flex-grow: 2;
+  margin-top: 30px;
+  width: 80%;
+};
+
+.sinSo-content-full {
+  font-family: 'Lucida Console', 'Courier New', monospace;
+  text-wrap: wrap;
+};
+
+.sinSo-update {
+  flex-grow: 1;
+  margin: 0px 50px;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #85519e;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+};
+
+.sinSo-update.sinSo-disabled {
+  opacity: 50%;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: unset !important;
+    border-radius: unset !important;
+    cursor: default !important;
+  }
+}

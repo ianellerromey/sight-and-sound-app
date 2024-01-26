@@ -1,0 +1,66 @@
+<div class="sinSo-header">
+  <span>
+    SIGHT <span style="font-size: small">a n d</span> SOUND
+  </span>
+  <span *ngIf="sinSoNode?.currentSinSo" class="sinSo-select">
+    <select #sinSoSelect (change)="updateSinSoNode(+sinSoSelect.value)">
+      <option *ngFor="let id of sinSoIds"
+        [value]="id"
+        [selected]="sinSoNode?.currentSinSo?.id === id">
+        {{id + 1}}
+      </option>
+    </select>
+    / {{sinSoIds[sinSoIds.length - 1] + 1}}
+  </span>
+</div>
+<div class="sinSo-page">
+  <div class="sinSo-navigation" style="width: 150px">
+    <div style="position: fixed; top: 130px">
+      <img
+        [ngClass]="{
+          'sinSo-update': true,
+          'sinSo-disabled': (!sinSoNode || sinSoNode.currentSinSo.id === 0)
+        }"
+        src="../../../assets/sinSo-first.png"
+        (click)="sinSoNode && updateSinSoNode(firstSinSoId)"
+      />
+    </div>
+    <div style="position: fixed; top: 200px">
+      <img
+        [ngClass]="{
+          'sinSo-update': true,
+          'sinSo-single': true,
+          'sinSo-disabled': (!sinSoNode || sinSoNode.previousSinSo === null)
+        }"
+        src="../../../assets/sinSo-prev.png"
+        (click)="sinSoNode && updateSinSoNode(sinSoNode.previousSinSo)"
+      />
+    </div>
+  </div>
+  <div class="sinSo-content">
+    <div *ngIf="sinSoNode" class="sinSo-content-full">{{sinSoNode.currentSinSo.contentFull}}</div>
+  </div>
+  <div class="sinSo-navigation" style="width: 150px">
+    <div style="position: fixed; top: 130px">
+      <img
+        [ngClass]="{
+          'sinSo-update': true,
+          'sinSo-disabled': (!sinSoNode || sinSoNode.currentSinSo.id === sinSoIds[sinSoIds.length - 1])
+        }"
+        src="../../../assets/sinSo-last.png"
+        (click)="sinSoNode && updateSinSoNode(lastSinSoId)"
+      />
+    </div>
+    <div style="position: fixed; top: 200px">
+      <img
+        [ngClass]="{
+          'sinSo-update': true,
+          'sinSo-single': true,
+          'sinSo-disabled': (!sinSoNode || sinSoNode.nextSinSo === null)
+        }"
+        src="../../../assets/sinSo-next.png"
+        (click)="sinSoNode && updateSinSoNode(sinSoNode.nextSinSo)"
+      />
+    </div>
+  </div>
+</div>
