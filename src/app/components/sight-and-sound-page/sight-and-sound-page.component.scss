@@ -17,6 +17,16 @@
       cursor: pointer;
     }
   }
+
+  .sinSo-audio {
+    color: #d7a4f0;
+    cursor: pointer;
+  }
+  
+  .sinSo-audio.muted {
+    color: #85519e;
+    text-decoration: line-through;
+  }
 };
 
 .sinSo-page {

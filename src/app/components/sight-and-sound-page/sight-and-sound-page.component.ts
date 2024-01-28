@@ -10,6 +10,7 @@ import { SinSoNode, SightAndSoundService } from 'src/app/services/sight-and-soun
 export class SightAndSoundPageComponent implements OnInit {
   sinSoNode: SinSoNode | null = null;
   sinSoIds: number[] = [];
+  muted: boolean = false;
 
   constructor(
     private sinSoService: SightAndSoundService
@@ -31,10 +32,35 @@ export class SightAndSoundPageComponent implements OnInit {
     this.sinSoService.sinSoStream.subscribe((sinSoNode: SinSoNode | null) => {
         this.sinSoNode = sinSoNode;
       });
+
+    window.onload = () => {
+      this.setAudio(false);
+    };
   }
 
   updateSinSoNode(newCurrentSinSoId: number | null): void {
     newCurrentSinSoId !== null && this.sinSoService.updateSinSoNode(newCurrentSinSoId);
+  }
+
+  toggleAudio(): void {
+    this.setAudio(!this.muted);
+  }
+
+  private setAudio(muted: boolean): void {
+    this.muted = muted;
+
+    const audioElements = document.getElementsByTagName('audio') as HTMLCollection;
+    const audioElement = audioElements.length && audioElements[0] as HTMLAudioElement;
+    
+    if(audioElement) {
+      if(this.muted) {
+        audioElement.pause();
+      }
+      else {
+        audioElement.loop = true;
+        audioElement.play();
+      }
+    }
   }
 
 }

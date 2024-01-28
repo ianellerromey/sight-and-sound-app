@@ -1,6 +1,9 @@
 <div class="sinSo-header">
+  <audio hidden loop>
+    <source src="../../../assets/sight-and-sound.mp3" type="audio/mpeg">
+  </audio>
   <span>
-    SIGHT <span style="font-size: small">a n d</span> SOUND
+    <div>SIGHT</div>  <div style="font-size: small">a n d</div>  <div [ngClass]="{ 'sinSo-audio': true, 'muted': muted }" (click)="toggleAudio()">SOUND</div>
   </span>
   <span *ngIf="sinSoNode?.currentSinSo" class="sinSo-select">
     <select #sinSoSelect (change)="updateSinSoNode(+sinSoSelect.value)">
