@@ -1,5 +1,7 @@
+// https://paletton.com/#uid=34C0u0kbEoe3+Bq7EsRfukjjVgo
+
 .sinSo-header {
-  color: #85519e;
+  color: #6F5682;
   text-align: center;
   font-family: 'Lucida Console', 'Courier New', monospace;
   font-size: x-large;
@@ -19,12 +21,12 @@
   }
 
   .sinSo-audio {
-    color: #d7a4f0;
+    color: #8B789A;
     cursor: pointer;
   }
   
   .sinSo-audio.muted {
-    color: #85519e;
+    color: #573C6D;
     text-decoration: line-through;
   }
 };
@@ -35,11 +37,13 @@
 };
 
 .sinSo-content {
-  color: white;
+  color: #E6DBAF;
+  text-shadow: 1px 1px 3px black;
   white-space: pre;
   flex-grow: 2;
   margin-top: 30px;
   width: 80%;
+  z-index: 1;
 };
 
 .sinSo-content-full {
@@ -54,7 +58,7 @@
   &:hover,
   &:active,
   &:focus {
-    background-color: #85519e;
+    background-color: #667B2F;
     border-radius: 50%;
     cursor: pointer;
   }
@@ -70,4 +74,23 @@
     border-radius: unset !important;
     cursor: default !important;
   }
+}
+
+.sinSo-background {
+  img {
+    opacity: .33;
+    z-index: 0;
+  }
+}
+
+.sinSo-background.left {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.sinSo-background.right {
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
