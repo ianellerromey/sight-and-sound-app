@@ -40,7 +40,7 @@ export class SightAndSoundService {
       .then(response => response.json())
       .then((response: SinSoMap) => {
           this._sinSo = response.sinSo;
-          this.updateSinSoNode(0);
+          this.updateSinSoNode(this.sinSoIds.length - 1);
         });
   }
 

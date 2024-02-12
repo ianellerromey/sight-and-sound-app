@@ -34,7 +34,7 @@ export class SightAndSoundPageComponent implements OnInit {
       });
 
     window.onload = () => {
-      this.setAudio(false);
+      this.setAudio(true);
     };
   }
 
